@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { Spin } from 'antd';
+import Loader from "../../components/Feedback/Loader/loader"
 const routes = [
   {
     path: '',
@@ -13,7 +13,7 @@ const routes = [
 export default function AppRouter() {
 
   return (
-    <Suspense fallback={<Spin />}>
+    <Suspense fallback={<Loader />}>
       <Switch>
         {routes.map((route, idx) => (
           <Route exact={route.exact} key={idx} path={`/${route.path}`}>

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Layout } from 'antd';
-
+import usewindowSize from '../../lib/useWindowSize'
 import DashboardRoutes from './DashboardRoutes';
 
 const { Content } = Layout;
 
 const styles = {
-  layout: { flexDirection: 'row', overflowX: 'hidden', overflowY: 'hidden' },
+  layout: { flexDirection: 'row', overflowX: 'hidden' },
   content: {
     padding: '70px 70px 70px',
     flexShrink: '0',
@@ -16,30 +16,16 @@ const styles = {
 };
 
 export default function Dashboard() {
-
-
-
-
+  const { height } = usewindowSize();
   return (
-
-
-    <Layout style={{
-      width: '100%',
-      height: '100%'
-    }}>
-
+    <Layout style={{ height: height }}>
       <Layout style={styles.layout}>
-
         <Layout
-          style={{
-            width: '100%',
-            height: '100%'
-          }}
+          style={{height: height}}
         >
           <Content style={styles.content}>
             <DashboardRoutes />
           </Content>
-
         </Layout>
       </Layout>
     </Layout>
